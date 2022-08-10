@@ -1,9 +1,11 @@
 #include "main.h"
+
 /**
  * prompt - writes a prompt
  *
  * Return: 0 on sucess
  */
+
 int prompt(void)
 {
     char *prompt = "$ ";
@@ -17,11 +19,13 @@ int prompt(void)
     }
     return (0);
 }
+
 /**
  * _read - reads stdin and stores it in a buffer
  *
  * Return: a pointer to the buffer
  */
+
 char *_read(void)
 {
     ssize_t readcount = 0;
@@ -49,6 +53,7 @@ char *_read(void)
     }
     return (buffer);
 }
+
 /**
  * _fullpathbuffer - finds the string to call execve on
  * @av: pointer to array of user of strings
@@ -57,6 +62,7 @@ char *_read(void)
  *
  * Return: a pointer to string to call execve on
  */
+
 char *_fullpathbuffer(char **av, char *PATH, char *copy)
 {
     char *tok, *fullpathbuffer = NULL, *concatstr = NULL;
@@ -98,6 +104,7 @@ char *_fullpathbuffer(char **av, char *PATH, char *copy)
     free(copy);
     return (fullpathbuffer);
 }
+
 /**
  * checkbuiltins - check if first user string is a built-in
  * @av: pointer to array of user of strings
@@ -105,6 +112,7 @@ char *_fullpathbuffer(char **av, char *PATH, char *copy)
  * @exitstatus: exit status of execve
  * Return: 1 if user string is equal to env or 0 otherwise
  */
+
 int checkbuiltins(char **av, char *buffer, int exitstatus)
 {
     int i;
@@ -129,6 +137,7 @@ int checkbuiltins(char **av, char *buffer, int exitstatus)
     else
         return (0);
 }
+
 /**
  * _forkprocess - create child process to execute based on user input
  * @av: pointer to array of user of strings
@@ -137,6 +146,7 @@ int checkbuiltins(char **av, char *buffer, int exitstatus)
  *
  * Return: 0 on success
  */
+
 int _forkprocess(char **av, char *buffer, char *fullpathbuffer)
 {
     int i, status, result, exitstatus = 0;
